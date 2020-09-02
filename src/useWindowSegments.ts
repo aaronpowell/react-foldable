@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { getDualScreenMatchMedia } from "./mediaQuery";
 
 declare global {
   interface Window {
@@ -21,18 +22,15 @@ const useWindowSegments = () => {
   const [screenCount, setScreenCount] = useState(window.getWindowSegments());
 
   useEffect(() => {
-    const isDualScreen = window.matchMedia(
-      "(screen-spanning: single-fold-horizontal), (screen-spanning: single-fold-vertical)"
-    );
+    const watcher = getDualScreenMatchMedia();
     const updateScreenInfo = () => {
       setScreenCount(window.getWindowSegments());
     };
 
-    isDualScreen.addEventListener("change", updateScreenInfo);
+    watcher.addEventListener("change", updateScreenInfo);
 
     return () => {
-      isDualScreen &&
-        isDualScreen.removeEventListener("change", updateScreenInfo);
+      watcher && watcher.removeEventListener("change", updateScreenInfo);
     };
   }, []);
 
