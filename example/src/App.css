@@ -36,3 +36,40 @@
     transform: rotate(360deg);
   }
 }
+
+@media (screen-spanning: single-fold-horizontal),
+  (screen-spanning: single-fold-vertical) {
+  .App-header {
+    min-height: auto;
+  }
+
+  .second {
+    text-align: center;
+  }
+}
+
+@media (screen-spanning: single-fold-horizontal) {
+  .App-header,
+  .second {
+    min-height: env(fold-height);
+  }
+  .second {
+    padding-top: env(fold-width);
+  }
+}
+
+@media (screen-spanning: single-fold-vertical) {
+  .App {
+    float: left;
+  }
+  .App-header,
+  .second {
+    min-width: env(fold-left);
+    min-height: env(fold-height);
+  }
+
+  .second {
+    float: left;
+    padding-left: env(fold-width);
+  }
+}
