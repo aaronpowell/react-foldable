@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { ScreenSpanning } from "./useScreenSpanning";
 
 interface FoldableContextProps {
-    windowSegments?: DOMRect[];
-    isDualScreen: boolean;
-    screenSpanning: ScreenSpanning;
+  windowSegments?: DOMRect[];
+  isDualScreen: boolean;
+  screenSpanning: ScreenSpanning;
 }
 
 const FoldableContext = React.createContext<FoldableContextProps>({
