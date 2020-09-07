@@ -1,7 +1,7 @@
 import React from "react";
 import { useWindowSegments } from "./useWindowSegments";
 import { FoldableScreenProps } from "./FoldableScreen";
-import { FoldableContext } from "./FoldableContext";
+import { FoldableContext, FoldableContextProps } from "./FoldableContext";
 import { useIsDualScreen } from "./useIsDualScreen";
 import { useScreenSpanning } from "./useScreenSpanning";
 
@@ -16,12 +16,23 @@ const Foldable = (props: { children: React.ReactNode }) => {
     >
       {React.Children.map(props.children, (c) => {
         if (React.isValidElement<FoldableScreenProps>(c)) {
-          const element = c;
-          return c.props.matchScreen < windowSegments.length
-            ? React.cloneElement(element, {
-                matchScreen: element.props.matchScreen,
-              })
-            : null;
+          const { match, matchScreen } = c.props;
+
+          if (match) {
+            return match({ windowSegments, isDualScreen, screenSpanning })
+              ? React.cloneElement(c, {
+                  matchScreen: c.props.matchScreen,
+                })
+              : null;
+          } else if (matchScreen !== undefined) {
+            return matchScreen < windowSegments.length
+              ? React.cloneElement(c, {
+                  matchScreen: c.props.matchScreen,
+                })
+              : null;
+          } else {
+            return null;
+          }
         }
         return null;
       })}
