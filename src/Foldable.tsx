@@ -5,7 +5,7 @@ import { FoldableContext } from "./FoldableContext";
 import { useIsDualScreen } from "./useIsDualScreen";
 import { useScreenSpanning } from "./useScreenSpanning";
 
-const Foldable: React.FC = (props) => {
+const Foldable = (props: { children: React.ReactNode }) => {
   const windowSegments = useWindowSegments();
   const isDualScreen = useIsDualScreen();
   const screenSpanning = useScreenSpanning();

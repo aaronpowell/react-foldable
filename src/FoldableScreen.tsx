@@ -1,8 +1,6 @@
 import React from "react";
 import { FoldableContext } from "./FoldableContext";
 
-type FoldableScreen = React.FC;
-
 export interface FoldableComponentProps<
   Params extends { [K in keyof Params]?: string } = {}
 > {
@@ -17,10 +15,7 @@ export interface FoldableScreenProps {
     | React.ComponentType<any>;
 }
 
-const FoldableScreen: React.FC<FoldableScreenProps> = ({
-  matchScreen,
-  component,
-}) => {
+const FoldableScreen = ({ matchScreen, component }: FoldableScreenProps) => {
   return (
     <FoldableContext.Consumer>
       {(context) =>
