@@ -1,23 +1,54 @@
 {
   "name": "react-foldable",
   "version": "0.0.1",
-  "description": "",
+  "description": "React Foldable is a set of components that helps you work with multi-screen and foldable displays",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "lint": "eslint './src/**/*.ts' './example/src/**/*.{ts,tsx,js}'",
+    "lint:fix": "npm run lint -- --fix"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "surface-duo",
+    "dual-screen"
+  ],
+  "author": {
+    "name": "Aaron Powell",
+    "email": "me@aaron-powell.com",
+    "url": "https://www.aaron-powell.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "eslint": "^7.8.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "husky": "^4.3.0",
+    "prettier": "^2.1.1",
     "typescript": "^4.0.2"
   },
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aaronpowell/react-foldable"
+  },
+  "bugs": {
+    "url": "https://github.com/aaronpowell/react-foldable/issues"
+  },
+  "homepage": "https://github.com/aaronpowell/react-foldable",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   }
 }

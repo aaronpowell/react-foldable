@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getDualScreenMatchMedia } from "./mediaQuery";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare global {
   interface Window {
     getWindowSegments: () => DOMRect[];
