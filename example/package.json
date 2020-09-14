@@ -14,7 +14,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
     "typescript": "^3.7.5",
-    "react-foldable": "file:../"
+    "react-foldable": "file:../react-foldable"
   },
   "scripts": {
     "start": "react-scripts start",
