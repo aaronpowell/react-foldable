@@ -1,6 +1,6 @@
 {
   "name": "react-foldable",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "React Foldable is a set of components that helps you work with multi-screen and foldable displays",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -50,6 +50,5 @@
     "hooks": {
       "pre-commit": "npm run lint"
     }
-  },
-  "readme": "https://raw.githubusercontent.com/aaronpowell/react-foldable/main/README.md"
+  }
 }
