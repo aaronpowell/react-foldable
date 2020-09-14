@@ -21,9 +21,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "14"
-      - run: npm install
-        working-directory: example
-      - run: npm run build
+      - run: |
+          npm install
+          npm run build
         working-directory: example
       - name: Build And Deploy
         id: builddeploy

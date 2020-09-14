@@ -50,5 +50,6 @@
     "hooks": {
       "pre-commit": "npm run lint"
     }
-  }
+  },
+  "readme": "https://raw.githubusercontent.com/aaronpowell/react-foldable/main/README.md"
 }
