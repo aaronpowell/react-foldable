@@ -23,10 +23,6 @@ jobs:
           node-version: "14"
       - run: npm install
         working-directory: example
-      - run: |
-          rm -rf node_modules
-          npm install
-          npm run build
       - run: npm run build
         working-directory: example
       - name: Build And Deploy
