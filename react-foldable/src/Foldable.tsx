@@ -1,7 +1,7 @@
 import React from "react";
 import { useWindowSegments } from "./useWindowSegments";
 import { FoldableScreenProps } from "./FoldableScreen";
-import { FoldableContext, FoldableContextProps } from "./FoldableContext";
+import { FoldableContext } from "./FoldableContext";
 import { useIsDualScreen } from "./useIsDualScreen";
 import { useScreenSpanning } from "./useScreenSpanning";
 
