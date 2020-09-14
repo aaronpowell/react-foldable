@@ -24,6 +24,7 @@ jobs:
       - run: |
           cd example
           npm install
+          ls -la node_modules | grep react
           npm run build
       # - name: Build And Deploy
       #   id: builddeploy
