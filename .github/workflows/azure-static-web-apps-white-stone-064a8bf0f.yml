@@ -22,9 +22,9 @@ jobs:
         with:
           node-version: "14"
       - run: |
+          cd example
           npm install
           npm run build
-        working-directory: example
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v0.0.1-preview
