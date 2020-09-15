@@ -50,9 +50,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ env.NODE_VERSION }}
-          registry-url: "https://npm.pkg.github.com/@aaronpowell"
+          registry-url: https://npm.pkg.github.com/
           scope: "@aaronpowell"
       - run: npm ci
+      - run: echo "registry=https://npm.pkg.github.com/@aaronpowell" >> .npmrc
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
