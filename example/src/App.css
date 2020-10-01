@@ -54,11 +54,12 @@
 @media (screen-spanning: single-fold-horizontal) {
   .App-header,
   .second {
-    max-height: env(fold-height);
-    min-height: env(fold-height);
+    max-height: env(fold-top);
+    min-width: env(fold-width);
+    max-width: env(fold-width);
   }
   .second {
-    padding-top: env(fold-width);
+    padding-top: env(fold-height);
   }
 }
 
