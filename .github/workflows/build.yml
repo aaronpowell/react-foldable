@@ -8,6 +8,9 @@ on:
 
 jobs:
   build:
+    defaults:
+      run:
+        working-directory: react-foldable
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -27,6 +30,9 @@ jobs:
     # - run: npm test
 
   package:
+    defaults:
+      run:
+        working-directory: react-foldable
     needs: [build]
     runs-on: ubuntu-18.04
     steps:
@@ -47,21 +53,21 @@ jobs:
             path: "*.tgz"
 
   publish:
-      name: "Publish to GitHub Packages"
-      needs: [package]
-      runs-on: ubuntu-18.04
-      if: github.repository_owner == 'aaronpowell' # && github.token != ''
-      steps:
-      - name: Upload
-        uses: actions/download-artifact@v2
-        with:
-            name: package
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          registry-url: https://npm.pkg.github.com/
-          scope: "@aaronpowell"
-      - run: echo "registry=https://npm.pkg.github.com/@aaronpowell" >> .npmrc
-      - run: npm publish $(ls *.tgz)
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    name: "Publish to GitHub Packages"
+    needs: [package]
+    runs-on: ubuntu-18.04
+    if: github.repository_owner == 'aaronpowell' # && github.token != ''
+    steps:
+    - name: Upload
+      uses: actions/download-artifact@v2
+      with:
+          name: package
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        registry-url: https://npm.pkg.github.com/
+        scope: "@aaronpowell"
+    - run: echo "registry=https://npm.pkg.github.com/@aaronpowell" >> .npmrc
+    - run: npm publish $(ls *.tgz)
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
