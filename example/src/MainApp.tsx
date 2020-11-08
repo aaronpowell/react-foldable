@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
-import { Foldable, FoldableScreen } from "react-foldable";
+import { Foldable, FoldableScreen } from "@aaronpowell/react-foldable";
 
 const MainApp = () => (
   <div className="App">

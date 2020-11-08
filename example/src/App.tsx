@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Foldable, FoldableScreen } from "react-foldable";
+import { Foldable, FoldableScreen } from "@aaronpowell/react-foldable";
 import { MainApp } from "./MainApp";
 import { SecondScreen } from "./SecondScreen";
 
