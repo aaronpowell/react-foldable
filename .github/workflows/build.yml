@@ -50,7 +50,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
             name: package
-            path: "*.tgz"
+            path: "react-foldable/*.tgz"
 
   publish:
     name: "Publish to GitHub Packages"
