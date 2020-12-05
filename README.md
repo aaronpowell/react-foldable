@@ -1,6 +1,6 @@
 # React-Foldable
 
-React-Foldable is a set of components and React hooks that make it easier to work with foldable displays, such as the [Surface Duo](https://docs.microsoft.com/dual-screen/web/?WT.mc_id=reactfoldable-github-aapowell).
+React-Foldable is a set of components and React hooks that make it easier to work with foldable displays, such as the [Surface Duo](https://docs.microsoft.com/dual-screen/web/?WT.mc_id=javascript-0000-aapowell).
 
 ![React-Foldable in action](docs/foldable.gif)
 
