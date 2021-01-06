@@ -1,6 +1,12 @@
 # Changelog for `@aaronpowell/react-foldable`
 
-## [0.2.0]
+## [0.2.1] - 2020-01-06
+
+### Fixed
+
+- Release pipeline couldn't push to npm as a scoped package
+
+## [0.2.0] - 2020-01-06
 
 Released under a new package name
 
