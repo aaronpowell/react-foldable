@@ -1,6 +1,6 @@
 {
   "name": "@aaronpowell/react-foldable",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "React Foldable is a set of components that helps you work with multi-screen and foldable displays",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -17,7 +17,7 @@
   ],
   "author": {
     "name": "Aaron Powell",
-    "email": "me@aaron-powell.com",
+    "email": "me+github@aaron-powell.com",
     "url": "https://www.aaron-powell.com"
   },
   "license": "MIT",
