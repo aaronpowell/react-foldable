@@ -4,7 +4,7 @@ React-Foldable is a set of components and React hooks that make it easier to wor
 
 ![React-Foldable in action](docs/foldable.gif)
 
-[![npm version](https://img.shields.io/npm/v/react-foldable)](https://npmjs.org/package/react-foldable) | ![Latest Release Build](https://github.com/aaronpowell/react-foldable/workflows/Node.js%20Package/badge.svg)
+[![npm version](https://img.shields.io/npm/v/@aaronpowell/react-foldable)](https://npmjs.org/package/@aaronpowell/react-foldable) | ![Latest Release Build](https://github.com/aaronpowell/react-foldable/workflows/Node.js%20Package/badge.svg)
 
 ## Project Status
 
