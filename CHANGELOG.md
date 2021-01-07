@@ -1,5 +1,11 @@
 # Changelog for `@aaronpowell/react-foldable`
 
+## [0.2.2] - 2020-01-07
+
+### Fixed
+
+- Not including the output in the release package, this is now fixed
+
 ## [0.2.1] - 2020-01-06
 
 ### Fixed
