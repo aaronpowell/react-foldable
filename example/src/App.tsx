@@ -8,7 +8,9 @@ function App() {
   return (
     <Foldable>
       <FoldableScreen matchScreen={0} component={MainApp} />
-      <FoldableScreen matchScreen={1} component={SecondScreen} />
+      <FoldableScreen matchScreen={1}>
+        <SecondScreen />
+      </FoldableScreen>
     </Foldable>
   );
 }

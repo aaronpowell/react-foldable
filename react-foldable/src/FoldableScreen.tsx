@@ -12,33 +12,40 @@ export interface FoldableScreenProps {
   match?: (props: FoldableContextProps) => boolean;
   matchScreen?: number;
   component?:
-    | React.ComponentType<FoldableComponentProps<any>>
-    | React.ComponentType<any>;
+    | ((props: FoldableComponentProps<any>) => React.ReactNode)
+    | React.ReactNode;
+  render?: (props: FoldableComponentProps<any>) => React.ReactNode;
   children?:
-    | React.ComponentType<FoldableComponentProps<any>>
-    | React.ComponentType<any>;
+    | ((props: FoldableComponentProps<any>) => React.ReactNode)
+    | React.ReactNode;
 }
 
 const FoldableScreen = ({
   matchScreen,
   component,
+  render,
   children,
 }: FoldableScreenProps) => {
-  const c = component ?? children;
-
-  if (!c) {
-    return null;
-  }
   return (
     <FoldableContext.Consumer>
       {(context) => {
-        return React.createElement(c, {
+        const props = {
           screenIndex: matchScreen,
           windowSegment:
             matchScreen === undefined
               ? undefined
               : (context.windowSegments || [])[matchScreen],
-        });
+        };
+
+        return children
+          ? typeof children === "function"
+            ? children(props)
+            : children
+          : component
+          ? React.createElement(component as any, props)
+          : render
+          ? render(props)
+          : null;
       }}
     </FoldableContext.Consumer>
   );
