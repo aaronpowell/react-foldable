@@ -6,7 +6,7 @@ on:
       - v* #version is cut
 
 env:
-  NODE_VERSION: 12
+  NODE_VERSION: 14
 
 jobs:
   build:
@@ -34,10 +34,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run build
-      - run: npm pack
+      - run: |
+          npm ci
+          npm run lint
+          npm run build
+          npm pack
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
@@ -53,7 +54,6 @@ jobs:
           asset_path: 'react-foldable/aaronpowell-react-foldable-${{ env.tag }}.tgz'
           asset_name: 'aaronpowell-react-foldable-${{ env.tag }}.tgz'
           asset_content_type: application/zip
-
       - run: echo ${{ steps.create_release.outputs.id }} >> release.txt
       - name: Upload
         uses: actions/upload-artifact@v2
@@ -86,36 +86,33 @@ jobs:
   publish-npm:
     needs: release
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: react-foldable
     steps:
-      - uses: actions/checkout@v2
       - name: Download package
         uses: actions/download-artifact@v2
         with:
             name: package
-      - run: npm ci
-      - run: npm run build
-      - run: npm publish --access public $(ls *.tgz)
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: https://registry.npmjs.org/
+      - run: npm publish $(ls *.tgz) --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   publish-gpr:
     needs: release
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: react-foldable
     steps:
-      - uses: actions/checkout@v2
       - name: Download package
         uses: actions/download-artifact@v2
         with:
           name: package
-      - run: npm ci
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: https://npm.pkg.github.com/
+          scope: "@aaronpowell"
       - run: echo "registry=https://npm.pkg.github.com/@aaronpowell" >> .npmrc
-      - run: npm run build
-      - run: npm publish --access public $(ls *.tgz)
+      - run: npm publish $(ls *.tgz) --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
